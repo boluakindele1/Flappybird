@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
@@ -18,6 +19,10 @@ import javax.swing.Timer;
 
 public class FlappyBird implements ActionListener, MouseListener, KeyListener
 {
+    public static void main(String[] args)
+	{
+		flappyBird = new FlappyBird();
+	}
 
 	public static FlappyBird flappyBird;
 
@@ -62,7 +67,7 @@ public class FlappyBird implements ActionListener, MouseListener, KeyListener
 
 		timer.start();
 	}
-
+  // Method to add a new pair of columns
 	public void addColumn(boolean start)
 	{
 		int space = 300;
@@ -81,12 +86,13 @@ public class FlappyBird implements ActionListener, MouseListener, KeyListener
 		}
 	}
 
+        //sets the color of the columns
 	public void paintColumn(Graphics g, Rectangle column)
 	{
 		g.setColor(Color.green.darker());
 		g.fillRect(column.x, column.y, column.width, column.height);
 	}
-
+//method that makes the bird jump
 	public void jump()
 	{
 		if (gameOver)
@@ -240,12 +246,10 @@ public class FlappyBird implements ActionListener, MouseListener, KeyListener
 		}
 	}
 
-	public static void main(String[] args)
-	{
-		flappyBird = new FlappyBird();
-	}
+	
 
 	@Override
+        //allows the bird to jump after the user clicks the mouse 
 	public void mouseClicked(MouseEvent e)
 	{
 		jump();
